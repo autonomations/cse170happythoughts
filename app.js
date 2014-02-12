@@ -12,7 +12,6 @@ var handlebars = require('express3-handlebars')
  * Routes
  ***********************************************************************************************/
 var index = require('./routes/index');
-var project = require('./routes/project');
 var profile = require('./routes/profile');
 var create = require('./routes/create');
 var login = require('./routes/login');
