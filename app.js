@@ -24,10 +24,26 @@ var add_friend = require('./routes/add_friend');
  ***********************************************************************************************/
 var app = express();
 
+var hbs = handlebars.create({
+	defaultLayout: 'main',
+	helpers: {
+      block: function(name){
+        var blocks = this._blocks;
+            content = blocks && blocks[name];
+        return content ? content.join('\n') : null;
+      },
+      contentFor: function(name, options){
+        var blocks = this._blocks || (this._blocks = {});
+            block = blocks[name] || (blocks[name] = []); //Changed this to [] instead of {}
+        block.push(options.fn(this));
+      }
+    }
+});
+
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('title', 'Happy Thoughts');
-app.engine('handlebars', handlebars());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.favicon());
 app.use(express.logger('dev'));
@@ -49,13 +65,12 @@ if ('development' == app.get('env')) {
  * ADD ROUTES HERE
  ***********************************************************************************************/
 app.get('/', index.view);
-app.get('/home', index.view);
-app.get('/create', create.view);
-app.get('/profile', profile.view);
-app.get('/friends', friends.view);
-app.get('/logout', logout.view);
-app.get('/login', login.view);
-app.get('/add_friend', add_friend.view);
+app.get('#', index.view);
+app.get('#profile', index.view);
+app.get('#friends', index.view);
+app.get('#logout', index.view);
+app.get('#login', index.view);
+app.get('#add_friend', index.view);
 // app.get('/project', project.viewProject);
 // app.get('/project', project.viewProject);
 

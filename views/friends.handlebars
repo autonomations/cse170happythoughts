@@ -1,75 +1,33 @@
-<!doctype html>
 
-<html>
-<head>
-	<title>{{title}}</title>	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="/css/introHCI.css" rel="stylesheet">
-	<!-- this is a comment in HTML -->
-      
-</head>
-
-<body>
-	<div class="container">
-		
-	    <div class="navbar navbar-default" role="navigation">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="navbar-brand" href="#">Happy Thoughts</a>
-	        </div>
-	        <div class="navbar-collapse collapse">
-	          <ul class="nav navbar-nav">
-	          	{{#each navbar}}
-	            	<li><a href="/{{ navbar-item }}">{{ navbar-item }}</a></li>
-	            {{/each}}
-	          </ul>
-	        </div><!--/.nav-collapse -->
-	     </div>
-
-	     <div class="container-fluid">
-	     	<div class="row">
-	     		<h1 class="well"> Add a Friend Here! </h1>
-	     	</div>
-
-	     	{{#each images}}
-	     	<div class="row">
-    	    	
-	    		<div class="col-xs-4">
-	    			<img src="{{ imageURL }}" class="img-responsive">
-	    		</div>
-            	
-            	<div class="col-xs-offset-1 col-xs-4">
-            		<h2> {{name}}</h2>
-            		<p> {{description}}
-
-Assueverit reprehendunt has cu, ex melius indoctum praesent mea. His an utinam veritus neglegentur, alienum scaevola eu eum. Est cu dolore democritum. Zril suavitate ius eu, duo ne hinc exerci, odio novum scaevola eam cu. Ea labores inermis vocibus sit, ad pri tacimates quaestio disputando.</p>
-
-					<a type="button" style="margin-top: 30px;" class="btn-lg btn-primary col-xs-12 pull-right" style="margin-bottom: 30px;" href="/add_friend"> Add Friend </a>
-
-            	</div>
-	      
-	     	</div>
-	     	<hr />
-	     	{{/each}}
-
-	     	<div class"row" style="margin-top: 50px;">
-	     		<div class="col-xs-2"></div>
-			    
-		    </div>
-	     </div>
-
+<div class="container-fluid">
+	<div class="row">
+		<h1 class="well"> Add a Friend Here! </h1>
 	</div>
 
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/base.js"></script>
-</body>
-</html>
+	{{#each images}}
+	<div class="row">
+		
+		<div class="col-xs-4">
+			<img src="{{ imageURL }}" class="img-responsive">
+		</div>
+		
+		<div class="col-xs-offset-1 col-xs-4">
+			<h2> {{name}}</h2>
+			<p> {{description}}
+
+				Assueverit reprehendunt has cu, ex melius indoctum praesent mea. His an utinam veritus neglegentur, alienum scaevola eu eum. Est cu dolore democritum. Zril suavitate ius eu, duo ne hinc exerci, odio novum scaevola eam cu. Ea labores inermis vocibus sit, ad pri tacimates quaestio disputando.</p>
+
+				<a type="button" style="margin-top: 30px;" class="btn-lg btn-primary col-xs-12 pull-right" style="margin-bottom: 30px;" href="/add_friend"> Add Friend </a>
+
+			</div>
+
+		</div>
+		<hr />
+		{{/each}}
+
+		<div class"row" style="margin-top: 50px;">
+			<div class="col-xs-2"></div>
+			
+		</div>
+	</div>
+
