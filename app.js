@@ -66,6 +66,7 @@ if ('development' == app.get('env')) {
  ***********************************************************************************************/
 app.get('/', login.view);
 app.get('/home', index.view);
+app.get('/create', index.view);
 app.get('/profile', index.view);
 app.get('/friends', index.view);
 app.get('/logout', login.view);
