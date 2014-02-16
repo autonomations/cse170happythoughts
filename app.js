@@ -72,6 +72,7 @@ app.get('/profile', index.view);
 app.get('/friends', index.view);
 app.get('/logout', index.view);
 app.get('/login', index.view);
+
 app.get('/add_friend', index.view);
 // app.get('/project', project.viewProject);
 // app.get('/project', project.viewProject);

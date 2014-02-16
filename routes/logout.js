@@ -2,6 +2,10 @@
 
 exports.view = function(req, res){
    res.render('logout', {
+
+  //Change page layout to one without menu bar
+  layout: 'loginLayout',
+  
 	"images": [
 		{
 			"name": "Doug Engelbart",
