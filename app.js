@@ -64,13 +64,13 @@ if ('development' == app.get('env')) {
 /*********************************************************************************************** 
  * ADD ROUTES HERE
  ***********************************************************************************************/
-app.get('/', index.view);
-app.get('#', index.view);
-app.get('#profile', index.view);
-app.get('#friends', index.view);
-app.get('#logout', index.view);
-app.get('#login', index.view);
-app.get('#add_friend', index.view);
+app.get('/', login.view);
+app.get('/home', index.view);
+app.get('/profile', index.view);
+app.get('/friends', index.view);
+app.get('/logout', login.view);
+app.get('/login', login.view);
+app.get('/add_friend', index.view);
 // app.get('/project', project.viewProject);
 // app.get('/project', project.viewProject);
 
