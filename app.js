@@ -5,7 +5,8 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var handlebars = require('express3-handlebars')
+var handlebars = require('express3-handlebars');
+
 
 
 /************************************************************************************************
@@ -18,6 +19,7 @@ var login = require('./routes/login');
 var logout = require('./routes/logout');
 var friends = require('./routes/friends');
 var add_friend = require('./routes/add_friend');
+var content = require('./routes/content');
 
 /************************************************************************************************
  * Environments
@@ -65,12 +67,12 @@ if ('development' == app.get('env')) {
  * ADD ROUTES HERE
  ***********************************************************************************************/
 app.get('/', index.view);
-app.get('#', index.view);
-app.get('#profile', index.view);
-app.get('#friends', index.view);
-app.get('#logout', index.view);
-app.get('#login', index.view);
-app.get('#add_friend', index.view);
+app.get('/content', content.view);
+app.get('/profile', index.view);
+app.get('/friends', index.view);
+app.get('/logout', index.view);
+app.get('/login', index.view);
+app.get('/add_friend', index.view);
 // app.get('/project', project.viewProject);
 // app.get('/project', project.viewProject);
 
