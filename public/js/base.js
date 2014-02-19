@@ -9,6 +9,8 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
+	// $.get('/data');
+
 	$('#next').click(function(e) {
 		$.get('/content', contentAJAX);
 		console.log('Next Clicked:');
@@ -25,6 +27,8 @@ function initializePage() {
         $('a').removeClass('active');s
     });
 }
+
+
 
 function contentAJAX(ajaxResult) {
 	console.log('THIS WORKING?');

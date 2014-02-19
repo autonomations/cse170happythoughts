@@ -20,6 +20,7 @@ var logout = require('./routes/logout');
 var friends = require('./routes/friends');
 var add_friend = require('./routes/add_friend');
 var content = require('./routes/content');
+var data = require('./routes/data');
 
 /************************************************************************************************
  * Environments
@@ -67,6 +68,8 @@ if ('development' == app.get('env')) {
  * ADD ROUTES HERE
  ***********************************************************************************************/
 app.get('/', index.view);
+app.get('/home', index.view);
+app.get('/data', data.view);
 app.get('/content', content.view);
 app.get('/create', create.view);
 app.get('/profile', profile.view);
