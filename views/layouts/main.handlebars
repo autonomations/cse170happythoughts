@@ -6,36 +6,26 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes">
 
+<!-- 	<link href="/css/menu.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="/css/introHCI.css" rel="stylesheet">
-	<link href="/css/menu.css" rel="stylesheet">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
 
 </head>
 
 <body>
 
-	<!-- <div class="container-fluid"> -->
+	<div data-role="page"  id="pageone">
+	  <div data-role="header" data-theme="a">{{> navigation }}</div>
+	  <div data-role="main" class="ui-content container">{{{ body }}}</div>
+	  <div data-role="footer">{{> footer }}</div>
+	</div> 	
 
-
-	{{> navigation }}
-
-		
-
-	<div id="content" class="container">
-		{{{ body }}}
-	</div>    	
-
-    {{> footer }}
-
-	<!-- </div> --><!-- /.container-fluid -->  
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/base.js"></script>
-	<script type="text/javascript" src="/js/userStatus.js"></script>
 
 </body>
 

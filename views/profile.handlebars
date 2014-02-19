@@ -1,8 +1,9 @@
 
-{{#with images.[1]}}
-<div class="container">
+
+
+{{#each images}}
 	<div class="row">
-		<h1 class="well"> {{name}} </h1>
+		<h1 class="well"> Hello </h1>
 	</div>
 	<div class="row">
 
@@ -10,14 +11,16 @@
 			<img src="{{ imageURL }}" class="img-responsive">
 		</div>
 	
-	<div class="col-xs-offset-1 col-xs-4">
-		<h2> {{name}}</h2>
-		<p> {{description}} </p>
-		<button type="button" style="margin-top: 30px;" class="btn-lg btn-primary col-xs-12" style="margin-bottom: 30px;"> Next </button>
-	</div>
-	{{/with}}
+
+		<div class="col-xs-offset-1 col-xs-4">
+			<h2> {{name}}</h2>
+			<p> {{description}} </p>
+			<button type="button" style="margin-top: 30px;" class="btn-lg btn-primary col-xs-12" style="margin-bottom: 30px;"> Next </button>
+		</div>
+		
 	
 	</div>
+	{{/each}}
 
-</div>
+
 

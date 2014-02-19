@@ -68,10 +68,12 @@ if ('development' == app.get('env')) {
  ***********************************************************************************************/
 app.get('/', index.view);
 app.get('/content', content.view);
-app.get('/profile', index.view);
-app.get('/friends', index.view);
-app.get('/logout', index.view);
-app.get('/login', index.view);
+app.get('/create', create.view);
+app.get('/profile', profile.view);
+app.get('/friends', friends.view);
+/* Login and Logout */
+app.get('/logout', logout.view);
+app.get('/login', login.view);
 
 app.get('/add_friend', index.view);
 // app.get('/project', project.viewProject);
