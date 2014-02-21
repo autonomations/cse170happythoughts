@@ -68,7 +68,7 @@ if ('development' == app.get('env')) {
 /*********************************************************************************************** 
  * ADD ROUTES HERE
  ***********************************************************************************************/
-app.get('/', index.view);
+app.get('/', login.view);
 app.get('/home', index.view);
 app.get('/data', data.view);
 app.get('/content', content.view);
@@ -76,7 +76,7 @@ app.get('/create', create.view);
 app.get('/profile', profile.view);
 app.get('/friends', friends.view);
 /* Login and Logout */
-app.get('/logout', logout.view);
+app.get('/logout', login.view);
 app.get('/login', login.view);
 app.get('/signup',signup.view);
 
