@@ -9,7 +9,7 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-	// $.get('/data');
+	$.get('/content', contentAJAX);
 
 	$('#next').click(function(e) {
 		$.get('/content', contentAJAX);
@@ -31,13 +31,53 @@ function initializePage() {
 
 
 function contentAJAX(ajaxResult) {
-	console.log('THIS WORKING?');
 	var content = ajaxResult[Math.floor(ajaxResult.length * Math.random())];
 	var url = content.location;
 	var description = content.content;
 	var contentType = content.type;
-	$('#video-wrapper iframe').attr('src', url+'?autoplay=true');
-	console.log('url', url);
+
+	console.log(contentType);
+
+	$('#content-wrapper').empty();
+
+	if (contentType === 'video' || contentType === 'music') {
+		$('<iframe>').appendTo('#content-wrapper');
+		$('#content-wrapper').css('height', '500px');
+
+		$('#content-wrapper iframe').attr({
+			src: url+'?autoplay=1',
+			width: '900px', 
+			height: '500px'
+		});
+	}
+
+	if (contentType === 'picture') {
+		$('<img>').appendTo('#content-wrapper');
+		$('#content-wrapper').css('height', '500px');
+
+		$('#content-wrapper img').attr({
+			src: url,
+			width: '900px', 
+			height: '500px',
+			margin: '0 auto 0 auto',
+
+		});
+	}
+
+	if (contentType === 'quote') {
+		$('<p>').appendTo('#content-wrapper');
+		$('#content-wrapper p').text(description);
+		$('#content-wrapper p').css('height', '250px');
+		$('#content-wrapper').css('height', '250px');
+	}
+
+	if (contentType === 'challenge') {
+		$('<p>').appendTo('#content-wrapper');
+		$('#content-wrapper p').text(description);
+		$('#content-wrapper p').css('height', '250px');
+		$('#content-wrapper').css('height', '250px');
+	}
+
 }
 
 
