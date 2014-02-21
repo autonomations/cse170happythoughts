@@ -1,12 +1,14 @@
 
 	<div id="content-slider-wrapper" class="container">
-		<img class="img-responsive row" src="images/slider-bg.png">
 		<form>
-			<input type="range" name="slider-fill" id="slider-fill" value="50" min="0" max="100" data-highlight="true">
-
 			
-		    <fieldset data-role="controlgroup" data-type="horizontal">
-		        <legend>Happy Box Content Type:</legend>
+			<!-- <div id="slider-range-min"> </div>  -->
+			<input  type="range" name="slider-fill"  id="slider-fill" value="50" min="0" max="100" data-highlight="true">
+			<img class="happyfaces img-responsive" width="5%" style="float: left" src="images/stressedface.png" />
+			<img class="happyfaces img-responsive" width="5%" style="float: right; margin-right: 10px" src="images/smiley-face.png" />
+
+		    <fieldset data-role="controlgroup" data-type="horizontal" style="margin: 0 auto">
+		 <!--        <legend>Happy Box Content Type:</legend> -->
 		        <input type="checkbox" name="checkbox-h-2a" id="checkbox-h-2a">
 		        <label for="checkbox-h-2a">Photos</label>
 		        <input type="checkbox" name="checkbox-h-2b" id="checkbox-h-2b">
@@ -23,9 +25,7 @@
 		<div id="content-wrapper" >
 
 		</div><!-- /#content-happy-wrapper -->  
-
-
-			<button id="next" 	class="ui-btn" type="button"> I Want More Happy Thoughts </button>
+		<button id="next" 	class="ui-btn" type="button"> I Want More Happy Thoughts </button>
 	
 	</div>
 

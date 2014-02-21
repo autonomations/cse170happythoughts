@@ -5,6 +5,7 @@ $(document).ready(function() {
 	initializePage();
 })
 
+
 /*
  * Function that is called when the document is ready.
  */
@@ -12,14 +13,17 @@ function initializePage() {
 	$.get('/content', contentAJAX);
 
 	$('#next').click(function(e) {
+		var sliderValue = $("#slider-fill").val();
+		console.log(parseInt(sliderValue)+10);
+		// $("#slider-fill").val() = sliderValue + 10;
 		$.get('/content', contentAJAX);
 		console.log('Next Clicked:');
 	});
 
+	$('.ui-slider-handle').on('mouseup', function(e) {
+		console.log('working?');
 
-	$('#previous').click(function(e) {
 		$.get('/content', contentAJAX);
-		console.log('Previous Clicked');
 	});
 
 	/* Highlight active menu item */
@@ -27,8 +31,6 @@ function initializePage() {
         $('a').removeClass('active');s
     });
 }
-
-
 
 function contentAJAX(ajaxResult) {
 	var content = ajaxResult[Math.floor(ajaxResult.length * Math.random())];
