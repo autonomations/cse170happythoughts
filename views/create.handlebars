@@ -1,7 +1,45 @@
 <div class="row">
-	<h1 class="well"> Create Content </h1>
+	<h1 class="well"> Create Your Own Happy Thoughts </h1>
 </div>
-<div class="row">
+
+	<form role="form">
+		<div class="form-group">
+			<h2>Just answer a few questions to save a Happy Thought for your future self!</h2>
+
+			<label for="inputNewContentTitle">What is your Happy Thought called? </label>
+			<input type="text" class="form-control" id="inputNewContentTitle" placeholder="Three Little Birds by Bob Marley">
+		</div>
+
+		<div class="form-group">
+			<label for="inputNewContentLocation">Where is your Happy Thought? </label>
+			<input type="text" class="form-control" id="inputNewContentLocation" placeholder="https://wwww.yourlink.com">
+		</div>
+
+		<div class="form-group">
+			<label for="inputNewContentType">What is your Happy Thought's type? </label>
+			<select>
+  				<option value="video">Video</option>
+  				<option value="music">Music</option>
+  				<option value="image">Image</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<button type="button" class="btn-lg btn-primary col-xs-4" style="margin-bottom: 30px;" onClick="saveUserContent()">Save</button>
+		</div>
+	</form>
+
+<script>
+
+	//Notify the user that their content has been "saved"
+	function saveUserContent() {
+		if(confirm('Your Happy Thought has been saved!')){
+			//refresh the page when user clicks OK
+			document.location.reload(true);
+		}
+	}
+</script>
+<!--<div class="row">
 	<div class="videowrapper column-xs-6">
 		<iframe class="column-xs-6" height="auto" class="img-responsive" src="//www.youtube.com/embed/zaGUr6wzyT8" frameborder="0" allowfullscreen></iframe>
 
@@ -12,6 +50,5 @@
 	<div class="col-xs-4"></div>
 	<button type="button" class="btn-lg btn-primary col-xs-4" style="margin-bottom: 30px;"> Create </button>
 
-</div>
-
+</div>-->
 
