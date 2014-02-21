@@ -14,7 +14,7 @@ function initializePage() {
 
 	$('#next').click(function(e) {
 		var sliderValue = $("#slider-fill").val();
-		console.log(parseInt(sliderValue)+10);
+		// $("#slider-fill").val();
 		// $("#slider-fill").val() = sliderValue + 10;
 		$.get('/content', contentAJAX);
 		console.log('Next Clicked:');
