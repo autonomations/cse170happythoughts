@@ -22,6 +22,10 @@ var add_friend = require('./routes/add_friend');
 var content = require('./routes/content');
 var data = require('./routes/data');
 var signup = require('./routes/signup');
+var welcome1 = require('./routes/welcome1');
+var welcome2 = require('./routes/welcome2');
+var welcome3 = require('./routes/welcome3');
+var welcome4 = require('./routes/welcome4');
 
 /************************************************************************************************
  * Environments
@@ -79,6 +83,10 @@ app.get('/friends', friends.view);
 app.get('/logout', login.view);
 app.get('/login', login.view);
 app.get('/signup',signup.view);
+app.get('/welcome1',welcome1.view);
+app.get('/welcome2',welcome2.view);
+app.get('/welcome3',welcome3.view);
+app.get('/welcome4',welcome4.view);
 
 app.get('/add_friend', index.view);
 // app.get('/project', project.viewProject);
