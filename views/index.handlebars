@@ -2,14 +2,17 @@
 	<div id="content-slider-wrapper" class="container">
 		<form>
 			
+			<div class="row">
 			<!-- <div id="slider-range-min"> </div>  -->
 			<input  type="range" name="slider-fill"  id="slider-fill" value="50" min="0" max="100" data-highlight="true" data-theme="a">
-			<img class="happyfaces img-responsive" width="5%" style="float: left" src="images/stressedface.png" />
-			<img class="happyfaces img-responsive" width="5%" style="float: right; margin-right: 10px" src="images/smiley-face.png" />
+			<img class="happyfaces img-responsive" width="10%" style="float: left" src="images/stressedface.png" />
+			<img class="happyfaces img-responsive" width="10%" style="float: right; margin-right: 10px" src="images/smiley-face.png" />
+		</div>
 
-		    <fieldset data-role="controlgroup" data-type="horizontal" style="margin: 0 auto">
+			<!--Laura suggested that we remove these options-->
+<!--		    <fieldset data-role="controlgroup" data-type="horizontal" style="margin: 0 auto">-->
 		 <!--        <legend>Happy Box Content Type:</legend> -->
-		        <input type="checkbox" name="checkbox-h-2a" id="checkbox-h-2a">
+<!--		        <input type="checkbox" name="checkbox-h-2a" id="checkbox-h-2a">
 		        <label for="checkbox-h-2a">Photos</label>
 		        <input type="checkbox" name="checkbox-h-2b" id="checkbox-h-2b">
 		        <label for="checkbox-h-2b">Videos</label>
@@ -17,17 +20,27 @@
 		        <label for="checkbox-h-2c">Music</label>
 		        <input type="checkbox" name="checkbox-h-2d" id="checkbox-h-2d">
 		        <label for="checkbox-h-2d">Action</label>
-		    </fieldset>
+		    </fieldset>-->
 		</form>
 	</div>
 
+	<!--Content-->
 	<div class="container">
-		<div id="content-wrapper" >
-
-		</div><!-- /#content-happy-wrapper -->  
-		<button id="next" 	class="ui-btn" type="button" onClick="document.location.reload(true);"> I Want More Happy Thoughts </button>
-	
+		<div id="content-wrapper" ></div><!-- /#content-happy-wrapper -->  
 	</div>
+
+		<!--Laura suggested that we have Like/Dislike buttons
+		to show how our app would "learn" about our user's destressing preferences
+		(if it was real)-->
+	<div class="container">
+		<div class=".col-sm-6 .col-md-5 .col-lg-6">
+			<button id="like" 	class="ui-btn" type="button" onClick="document.location.reload(true);">Like</button>
+		</div>
+		<div class=".col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0">
+			<button id="dislike" 	class="ui-btn" type="button" onClick="document.location.reload(true);">Dislike</button>
+		</div>
+	</div>
+	
 
 
 

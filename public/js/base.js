@@ -44,25 +44,25 @@ function contentAJAX(ajaxResult) {
 
 	if (contentType === 'video' || contentType === 'music') {
 		$('<iframe>').appendTo('#content-wrapper');
-		$('#content-wrapper').css('height', '500px');
+		$('#content-wrapper').css('height', '250px');
 
 		$('#content-wrapper iframe').attr({
 			src: url+'?autoplay=1',
-			width: '900px', 
-			height: '500px'
+			width:'100%',
+			height:'100%',
+			margin: '0 auto 0 auto',
 		});
 	}
 
 	if (contentType === 'picture') {
 		$('<img>').appendTo('#content-wrapper');
-		$('#content-wrapper').css('height', '500px');
+		$('#content-wrapper').css('height', '100%');
 
 		$('#content-wrapper img').attr({
 			src: url,
-			width: '900px', 
-			height: '500px',
+			width: '100%',
+			height: 'auto',
 			margin: '0 auto 0 auto',
-
 		});
 	}
 
