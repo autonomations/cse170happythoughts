@@ -12,15 +12,29 @@ $(document).ready(function() {
 function initializePage() {
 	$.get('/content', contentAJAX);
 
-	$('#next').click(function(e) {
+	$('#like').click(function(e) {
 		var sliderValue = $("#slider-fill").val();
 		// $("#slider-fill").val();
 		// $("#slider-fill").val() = sliderValue + 10;
 		$.get('/content', contentAJAX);
-		console.log('Next Clicked:');
+		console.log('Like Clicked:');
 	});
 
-	$('.ui-slider-handle').on('mouseup', function(e) {
+	$('#dislike').click(function(e) {
+		var sliderValue = $("#slider-fill").val();
+		// $("#slider-fill").val();
+		// $("#slider-fill").val() = sliderValue + 10;
+		$.get('/content', contentAJAX);
+		console.log('Dislike Clicked:');
+	});
+
+/*	$('.ui-slider-handle').on('mouseup', function(e) {
+		console.log('working?');
+
+		$.get('/content', contentAJAX);
+	});*/
+
+	$('#slider-fill').on('change', function(e) {
 		console.log('working?');
 
 		$.get('/content', contentAJAX);
