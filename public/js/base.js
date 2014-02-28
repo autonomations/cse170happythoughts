@@ -1,7 +1,7 @@
 'use strict';
 
 /*Global? Variables*/
-var userStressLevel;
+//var userStressLevel;
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -16,7 +16,7 @@ function initializePage() {
 	$.get('/content', contentAJAX);
 
 	//Disable User Stress Indicator
-	$("#slider-user-stress").slider({ disabled: true });
+	//$("#slider-user-stress").slider({ disabled: true });
 
 
 	$('#like').click(function(e) {
@@ -25,11 +25,11 @@ function initializePage() {
 		// $("#slider-fill").val() = sliderValue + 10;
 
 		//Increment user stress level towards happy
-		var stressLevel = userStressLevel + 5;
-		userStressLevel = stressLevel;
+		//var stressLevel = userStressLevel + 5;
+		//userStressLevel = stressLevel;
 
 		//Update user's stress indicator
-		$("#slider-user-stress").slider("value", stressLevel);
+		//$("#slider-user-stress").slider("value", stressLevel);
 
 		$.get('/content', contentAJAX);
 		console.log('Like Clicked:');
@@ -52,13 +52,13 @@ function initializePage() {
 	$('#slider-fill').on('change', function(e) {
 		console.log('working?');
 
-		var stressLevel = $("#slider-fill").val();
-		userStressLevel = stressLevel;
+		//var stressLevel = $("#slider-fill").val();
+		//userStressLevel = stressLevel;
 		//$.get('/content', contentAJAX);
 	});
 
 	//Set User's Initial Stress Level
-	$('#slider-user-stress').slider("value", userStressLevel);
+	//$('#slider-user-stress').slider("value", userStressLevel);
 
 	/* Highlight active menu item */
 	$('.navbar-default .navbar-nav>li>a').click(function(e) {
