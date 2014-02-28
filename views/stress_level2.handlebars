@@ -1,0 +1,27 @@
+<div class="row">
+	<h1 class="well"> How are you feeling? </h1>
+</div>
+
+<div class="container">
+
+	<div class=".col-xs-12 .col-sm-4 .col-md-4 centered">
+		<h4 align="center">Use the slider to indicate your current stress level.</h4>
+		<hr class="hr-or">
+
+	</div>
+
+	<div id="content-slider-wrapper" class="container">
+		<form>
+			
+		<div class="row">
+			<!-- <div id="slider-range-min"> </div>  -->
+			<input  type="range" name="slider-fill"  id="slider-fill" value="50" min="0" max="100" data-highlight="true" data-theme="a">
+			<img class="happyfaces img-responsive" width="10%" style="float: left" src="images/stressedface.png" />
+			<img class="happyfaces img-responsive" width="10%" style="float: right; margin-right: 10px" src="images/smiley-face.png" />
+		</div>
+
+		<button type="button" class="btn-lg btn-primary col-xs-4" style="margin-bottom: 10px;" onClick="window.location = '/home'">Next</button>
+
+		</form>
+	</div>
+</div>

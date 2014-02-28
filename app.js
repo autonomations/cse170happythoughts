@@ -26,6 +26,8 @@ var welcome1 = require('./routes/welcome1');
 var welcome2 = require('./routes/welcome2');
 var welcome3 = require('./routes/welcome3');
 var welcome4 = require('./routes/welcome4');
+var stress_level1 = require('./routes/stress_level1');
+var stress_level2 = require('./routes/stress_level2');
 
 /************************************************************************************************
  * Environments
@@ -87,6 +89,9 @@ app.get('/welcome1',welcome1.view);
 app.get('/welcome2',welcome2.view);
 app.get('/welcome3',welcome3.view);
 app.get('/welcome4',welcome4.view);
+
+app.get('/stress_level', stress_level1.view);
+app.get('/stress_level#', stress_level2.view);
 
 app.get('/add_friend', index.view);
 // app.get('/project', project.viewProject);

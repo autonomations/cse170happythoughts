@@ -1,21 +1,36 @@
 'use strict';
 
+/*Global? Variables*/
+var userStressLevel;
+
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
 })
 
-
 /*
  * Function that is called when the document is ready.
  */
 function initializePage() {
+
 	$.get('/content', contentAJAX);
 
+	//Disable User Stress Indicator
+	$("#slider-user-stress").slider({ disabled: true });
+
+
 	$('#like').click(function(e) {
-		var sliderValue = $("#slider-fill").val();
+		//var sliderValue = $("#slider-fill").val();
 		// $("#slider-fill").val();
 		// $("#slider-fill").val() = sliderValue + 10;
+
+		//Increment user stress level towards happy
+		var stressLevel = userStressLevel + 5;
+		userStressLevel = stressLevel;
+
+		//Update user's stress indicator
+		$("#slider-user-stress").slider("value", stressLevel);
+
 		$.get('/content', contentAJAX);
 		console.log('Like Clicked:');
 	});
@@ -37,8 +52,13 @@ function initializePage() {
 	$('#slider-fill').on('change', function(e) {
 		console.log('working?');
 
-		$.get('/content', contentAJAX);
+		var stressLevel = $("#slider-fill").val();
+		userStressLevel = stressLevel;
+		//$.get('/content', contentAJAX);
 	});
+
+	//Set User's Initial Stress Level
+	$('#slider-user-stress').slider("value", userStressLevel);
 
 	/* Highlight active menu item */
 	$('.navbar-default .navbar-nav>li>a').click(function(e) {
