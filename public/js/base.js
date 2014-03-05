@@ -18,6 +18,10 @@ function initializePage() {
 	//Disable User Stress Indicator
 	//$("#slider-user-stress").slider({ disabled: true });
 
+//Listening to clicks to send to Google Analytics
+$('.ui-btn').click(function(e){
+	ga("send","event","like","click");
+});
 
 	$('#like').click(function(e) {
 		//var sliderValue = $("#slider-fill").val();
