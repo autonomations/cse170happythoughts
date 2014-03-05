@@ -19,6 +19,9 @@ function initializePage() {
 	//$("#slider-user-stress").slider({ disabled: true });
 
 
+	$('.ui-btn').click(function(e){
+		ga("send","event","like","click");
+	});
 	$('#like').click(function(e) {
 		//var sliderValue = $("#slider-fill").val();
 		// $("#slider-fill").val();
@@ -43,11 +46,11 @@ function initializePage() {
 		console.log('Dislike Clicked:');
 	});
 
-/*	$('.ui-slider-handle').on('mouseup', function(e) {
+	$('.ui-slider-handle').on('mouseup', function(e) {
 		console.log('working?');
 
 		$.get('/content', contentAJAX);
-	});*/
+	});
 
 	$('#slider-fill').on('change', function(e) {
 		console.log('working?');
