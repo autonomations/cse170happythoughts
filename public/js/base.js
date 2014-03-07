@@ -74,6 +74,9 @@ function initializePage() {
     //Disable user changing of slider value*/
 //$('input[disabled]').parent().find('.ui-disabled').removeClass('ui-disabled');
 
+	$('.ui-btn').click(function(e){
+		ga("send","event","like","click");
+	});
 	$('#like').click(function(e) {
 
 		var ponce3 = localStorage.getItem("userStressLevel");
