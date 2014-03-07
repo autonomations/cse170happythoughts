@@ -1,0 +1,20 @@
+{
+	"images": [
+		{
+			"name": "Erik Gallegos",
+			"imageURL": "erik.jpeg"			
+		},
+		{
+			"name": "Gaby Ponce",
+			"imageURL": "gabs.jpeg"		
+		},
+		{
+			"name": "Stephen Colbert",
+			"imageURL": "colbert.jpeg"			
+		},
+		{
+			"name": "Jennifer Lawrence",
+			"imageURL": "jlawrence.jpeg"			
+		}
+  ]
+}

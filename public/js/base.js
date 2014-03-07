@@ -1,7 +1,7 @@
 'use strict';
 
-/*Global? Variables*/
-//var userStressLevel;
+//Initialize the user's stress level
+localStorage.setItem("userStressLevel", 0);
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -13,36 +13,6 @@ $(document).ready(function() {
  */
 function initializePage() {
 
-	$.get('/content', contentAJAX);
-
-	//Disable User Stress Indicator
-	//$("#slider-user-stress").slider({ disabled: true });
-
-
-	$('#like').click(function(e) {
-		//var sliderValue = $("#slider-fill").val();
-		// $("#slider-fill").val();
-		// $("#slider-fill").val() = sliderValue + 10;
-
-		//Increment user stress level towards happy
-		//var stressLevel = userStressLevel + 5;
-		//userStressLevel = stressLevel;
-
-		//Update user's stress indicator
-		//$("#slider-user-stress").slider("value", stressLevel);
-
-		$.get('/content', contentAJAX);
-		console.log('Like Clicked:');
-	});
-
-	$('#dislike').click(function(e) {
-		var sliderValue = $("#slider-fill").val();
-		// $("#slider-fill").val();
-		// $("#slider-fill").val() = sliderValue + 10;
-		$.get('/content', contentAJAX);
-		console.log('Dislike Clicked:');
-	});
-
 /*	$('.ui-slider-handle').on('mouseup', function(e) {
 		console.log('working?');
 
@@ -52,17 +22,87 @@ function initializePage() {
 	$('#slider-fill').on('change', function(e) {
 		console.log('working?');
 
-		//var stressLevel = $("#slider-fill").val();
-		//userStressLevel = stressLevel;
+		//update the user's current stress level
+		var ponce2 = localStorage.getItem("userStressLevel");
+		console.log(ponce2);
+
+		var stressLevel = $("#slider-fill").val();
+		localStorage.setItem("userStressLevel", stressLevel);
+
+		//print to check it's value has been updated
+		var ponce = localStorage.getItem("userStressLevel");
+		console.log(ponce);
 		//$.get('/content', contentAJAX);
 	});
 
 	//Set User's Initial Stress Level
-	//$('#slider-user-stress').slider("value", userStressLevel);
+	//$('#slider-user-stress').val(userStressLevel);
+
+
+	$.get('/content', contentAJAX);
+
+	//Hide User Stress Handle
+	/*$('<input>').appendTo('[ data-role="content"]').attr({'name':'stress-progress','id':'stress-progress',
+	 'data-highlight':'true','min':'0','max':'100','value':'50','type':'range'}).slider({
+        create: function( event, ui ) {
+            $(this).parent().find('input').hide();
+            $(this).parent().find('input').css('margin-left','-9999px'); // Fix for some FF versions
+            $(this).parent().find('.ui-slider-track').css('margin','0 15px 0 15px');
+            $(this).parent().find('.ui-slider-handle').hide();
+            $(this).parent().find('.ui-disabled').removeClass('ui-disabled');
+            //$(this).parent().unbind('click');
+            //$(this).parent().unbind('mousedown');
+            /*$(this).parent().find('ui-slider').unbind('click');
+            $(this).parent().find('ui-slider').unbind('mousedown');
+        }
+    }).slider("refresh");*/
+	
+/*	$("#stress-progress").slider({
+		create: function( event, ui ) {
+            $(this).parent().find('input').hide();
+            $(this).parent().find('input').css('margin-left','-9999px'); // Fix for some FF versions
+            $(this).parent().find('.ui-slider-track').css('margin','0 15px 0 15px');
+            $(this).parent().find('.ui-slider-handle').hide();
+            $(this).parent().find('.ui-disabled').removeClass('ui-disabled');
+            //$(this).parent().unbind('click');
+            //$(this).parent().unbind('mousedown');
+            /*$(this).parent().find('ui-slider').unbind('click');
+            $(this).parent().find('ui-slider').unbind('mousedown');*/
+ /*       }
+	}).slider("refresh");
+	$("#stress-progress").val(localStorage.getItem("lastname")).slider("refresh");
+    //Disable user changing of slider value*/
+//$('input[disabled]').parent().find('.ui-disabled').removeClass('ui-disabled');
+
+	$('#like').click(function(e) {
+
+		var ponce3 = localStorage.getItem("userStressLevel");
+		console.log("Stress Level: ", ponce3);
+		
+		//Increment user stress level towards happy
+		var stressLevel = 10;
+		stressLevel = stressLevel + 10;
+		//console.log(stressLevel);
+
+		//Update user's stress indicator
+		//$("#slider-user-stress").val(stressLevel);
+
+		$.get('/content', contentAJAX);
+		console.log('Like Clicked:');
+	});
+
+	$('#dislike').click(function(e) {
+
+		//var sliderValue = $("#slider-fill").val();
+		//$("#slider-fill").val() = sliderValue + 10;
+
+		$.get('/content', contentAJAX);
+		console.log('Dislike Clicked:');
+	});
 
 	/* Highlight active menu item */
 	$('.navbar-default .navbar-nav>li>a').click(function(e) {
-        $('a').removeClass('active');s
+        $('a').removeClass('active');
     });
 }
 

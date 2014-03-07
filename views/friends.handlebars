@@ -4,26 +4,28 @@
 		<h1 class="well"> Sharing Happy Thoughts coming soon! </h1>
 	</div>
 
+	<hr />
+
+	<div class=".col-sm-6 .col-md-5 .col-lg-6">
+			<button id="addFriend" 	class="ui-btn" type="button" onClick="document.location.reload(true);">Invite a Friend</button>
+
+<!--			<a href="#popupLogin" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" aria-haspopup="true" aria-owns="popupLogin" aria-expanded="false" class="ui-link ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-active" role="button">Invite a Friend</a>-->
+	</div>
+
 	{{#each images}}
-	<div class="row">
+		<hr />
+		<div class="row">
 		
-		<div class="col-xs-4">
-			<img src="{{ imageURL }}" class="img-responsive">
-		</div>
+			<div class="col-xs-4" >
+				<img src="images/{{ imageURL }}" class="img-responsive">
+			</div>
 		
-		<div class="col-xs-offset-1 col-xs-4">
-			<h2> {{name}}</h2>
-			<p> {{description}}
-
-				Assueverit reprehendunt has cu, ex melius indoctum praesent mea. His an utinam veritus neglegentur, alienum scaevola eu eum. Est cu dolore democritum. Zril suavitate ius eu, duo ne hinc exerci, odio novum scaevola eam cu. Ea labores inermis vocibus sit, ad pri tacimates quaestio disputando.</p>
-
-				<a type="button" style="margin-top: 30px;" class="btn-lg btn-primary col-xs-12 pull-right" style="margin-bottom: 30px;" href="/add_friend"> Add Friend </a>
-
+			<div class="col-xs-offset-1 col-xs-4">
+				<h2> {{name}}</h2>
 			</div>
 
 		</div>
-		<hr />
-		{{/each}}
+	{{/each}}
 
 		<div class"row" style="margin-top: 50px;">
 			<div class="col-xs-2"></div>
