@@ -91,7 +91,7 @@ app.get('/welcome3',welcome3.view);
 app.get('/welcome4',welcome4.view);
 
 app.get('/stress_level', stress_level1.view);
-app.get('/stress_level#', stress_level2.view);
+app.get('/stress_level2', stress_level2.view);
 
 app.get('/add_friend', index.view);
 // app.get('/project', project.viewProject);
