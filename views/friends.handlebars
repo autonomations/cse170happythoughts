@@ -6,11 +6,42 @@
 
 	<hr />
 
-	<div class=".col-sm-6 .col-md-5 .col-lg-6">
-			<button id="addFriend" 	class="ui-btn" type="button" onClick="document.location.reload(true);">Invite a Friend</button>
+	<a href="#popupLogin" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" aria-haspopup="true" aria-owns="popupLogin" aria-expanded="false" class="ui-link ui-btn" role="button">Form</a>
+<!--class="ui-link ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-active"-->
 
-<!--			<a href="#popupLogin" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" aria-haspopup="true" aria-owns="popupLogin" aria-expanded="false" class="ui-link ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-active" role="button">Invite a Friend</a>-->
+	<div class="ui-popup-container ui-popup-active" id="popupLogin-popup" tabindex="0" style="max-width: 800px; max-height:100px">
+	<!--"max-width: 700px; top: 181.90909087657928px; left: 245.5px;"-->
+		<div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all ui-popup ui-body-a ui-overlay-shadow">
+			<form>
+				<div style="padding:10px 20px;">
+				  <h3>Invite a Friend</h3>
+		          <label for="friendEmail">Your Friend's Email:</label>
+		          <input type="text" name="user" id="friendEmail" value="" placeholder="example@email.com" data-theme="a">
+
+		          <label for="inviteMessage">Invitation Message:</label>
+		          <textarea class="form-control" id="inputInviteMsg" style="height: 500px">Hello!&#10;Join me on Happy Thoughts--the stress relieving app.&#10;&#10;</textarea>
+
+<!--		    	  <button type="submit" data-theme="b" class=" ui-btn ui-btn-b ui-shadow ui-corner-all">Send Invite</button>-->
+				<button type="submit" data-theme="b" class="ui-btn">Send Invite</button>
+		    	</div>
+			</form>
+		</div>
 	</div>
+
+<!--		<form>
+
+			<div style="padding:10px 20px;" id="inviteForm">
+				<h3>Invite a Friend</h3>
+				<label for="email" class="ui-hidden-accessible">Friend's Email:</label>
+				<input type="text" class="form-control" id="inputFriendEmail" placeholder="example@email.com">
+
+				<label for="inviteMessage" class="ui-hidden-accessible">Invitation Message:</label>
+				<textarea class="form-control" id="inputInviteMessage">Hello! Join me on Happy Thoughts-the stress relieving app.</textarea> -->
+
+<!--				<button type="submit" data-theme="b" class="ui-btn" 
+				>Send Invite</button>-->
+				<!--onClick="document.getElementById("inviteForm").innerHTML=\"New text!\";"-->
+
 
 	{{#each images}}
 		<hr />
@@ -31,5 +62,4 @@
 			<div class="col-xs-2"></div>
 			
 		</div>
-	</div>
-
+</div>

@@ -1,7 +1,7 @@
 'use strict';
 
 //Initialize the user's stress level
-localStorage.setItem("userStressLevel", 0);
+//localStorage.setItem("userStressLevel", 0);
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
@@ -40,6 +40,8 @@ function initializePage() {
 
 
 	$.get('/content', contentAJAX);
+
+	$.get('/userData', userDataAJAX);
 
 	//Hide User Stress Handle
 	/*$('<input>').appendTo('[ data-role="content"]').attr({'name':'stress-progress','id':'stress-progress',
@@ -107,6 +109,36 @@ function initializePage() {
 	$('.navbar-default .navbar-nav>li>a').click(function(e) {
         $('a').removeClass('active');
     });
+}
+
+function requestUserStressLevel(e) {
+	console.log("Need user data");
+
+	var url = "/userData";
+	$.get(url, getUserData);
+	console.log(url);
+}
+
+function getUserStressLevel(result) {
+	var userData = result[0];
+	var userStressLevel = userData.userStressLevel;
+
+	console.log(userStressLevel);
+}
+
+function requestUserName(e) {
+	console.log("Need user data");
+
+	var url = "/userData";
+	$.get(url, getUserData);
+	console.log(url);
+}
+
+function getUserName(result) {
+	var userData = result[0];
+	var userName = userData.userName;
+
+	console.log(userName);
 }
 
 function contentAJAX(ajaxResult) {
