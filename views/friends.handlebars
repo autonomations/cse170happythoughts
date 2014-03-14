@@ -1,12 +1,12 @@
 
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<h1 class="well"> Sharing Happy Thoughts coming soon! </h1>
+		<h1 class="well"> Your Friends </h1>
 	</div>
 
 	<hr />
 
-	<a href="#popupLogin" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" aria-haspopup="true" aria-owns="popupLogin" aria-expanded="false" class="ui-link ui-btn" role="button">Form</a>
+	<a href="#popupLogin" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" aria-haspopup="true" aria-owns="popupLogin" aria-expanded="false" class="ui-link ui-btn" role="button">Invite a Friend</a>
 <!--class="ui-link ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-active"-->
 
 	<div class="ui-popup-container ui-popup-active" id="popupLogin-popup" tabindex="0" style="max-width: 800px; max-height:100px">
@@ -22,26 +22,11 @@
 		          <textarea class="form-control" id="inputInviteMsg" style="height: 500px">Hello!&#10;Join me on Happy Thoughts--the stress relieving app.&#10;&#10;</textarea>
 
 <!--		    	  <button type="submit" data-theme="b" class=" ui-btn ui-btn-b ui-shadow ui-corner-all">Send Invite</button>-->
-				<button type="submit" data-theme="b" class="ui-btn">Send Invite</button>
+				<button type="submit" data-theme="b" class="ui-btn" id="sendFriendInvite">Send Invite</button>
 		    	</div>
 			</form>
 		</div>
 	</div>
-
-<!--		<form>
-
-			<div style="padding:10px 20px;" id="inviteForm">
-				<h3>Invite a Friend</h3>
-				<label for="email" class="ui-hidden-accessible">Friend's Email:</label>
-				<input type="text" class="form-control" id="inputFriendEmail" placeholder="example@email.com">
-
-				<label for="inviteMessage" class="ui-hidden-accessible">Invitation Message:</label>
-				<textarea class="form-control" id="inputInviteMessage">Hello! Join me on Happy Thoughts-the stress relieving app.</textarea> -->
-
-<!--				<button type="submit" data-theme="b" class="ui-btn" 
-				>Send Invite</button>-->
-				<!--onClick="document.getElementById("inviteForm").innerHTML=\"New text!\";"-->
-
 
 	{{#each images}}
 		<hr />

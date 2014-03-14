@@ -12,19 +12,26 @@
 	</form>
 	</div>		
 -->
-<!--	<div class=".col-xs-12 .col-sm-4 .col-md-4 centered">
+	<div class=".col-xs-12 .col-sm-4 .col-md-4 centered">
 		<h4 align="center">Your Stress Level: </h4>
-	</div>-->
+	</div>
 
-<!--	<input name="stress-progress" id="stress-progress" data-highlight="true" min="0" max="100" value="50" type="range">
+	<div class="row">
+			<!-- <div id="slider-range-min"> </div>  -->
+			<input name="stress-progress" id="stress-progress" data-highlight="true" min="0" max="100" value="50" type="range" data-theme="a">
+			<img class="happyfaces img-responsive" width="10%" style="float: right" src="images/stressedface.png" />
+			<img class="happyfaces img-responsive" width="10%" style="float: left; margin-right: 10px" src="images/smiley-face.png" />
+		</div>
 
-	<div id="content-slider-wrapper" class="container">
+<!--	<div id="content-slider-wrapper" class="container">
 		<input  type="range" name="slider-user-stress"  id="slider-user-stress" min="0" max="100" data-highlight="true" data-theme="a">
 		<img class="happyfaces img-responsive" width="10%" style="float: left" src="images/stressedface.png" />
 		<img class="happyfaces img-responsive" width="10%" style="float: right; margin-right: 10px" src="images/smiley-face.png" />
-	</div>-->
+	</div>
 
-	<div data-role="content"> </div>
+	<div data-role="content"> </div>-->
+
+
 
 <!--Code before this is commented out for A/B testing, will make a branch for this code later-->
 
@@ -38,10 +45,10 @@
 		(if it was real)-->
 	<div class="container">
 		<div class=".col-sm-6 .col-md-5 .col-lg-6">
-			<button id="like" 	class="ui-btn" type="button" onClick="document.location.reload(true);">Like</button>
+			<button id="like" 	class="ui-btn" type="button" onClick="document.location.reload(true);">Feeling Better</button>
 		</div>
 		<div class=".col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0">
-			<button id="dislike" 	class="ui-btn" type="button" onClick="document.location.reload(true);">Dislike</button>
+			<button id="dislike" 	class="ui-btn" type="button" onClick="document.location.reload(true);">Not So Much</button>
 		</div>
 	</div>
 	

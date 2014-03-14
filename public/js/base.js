@@ -23,7 +23,7 @@ function initializePage() {
 		console.log('working?');
 
 		//update the user's current stress level
-		var ponce2 = localStorage.getItem("userStressLevel");
+/*		var ponce2 = localStorage.getItem("userStressLevel");
 		console.log(ponce2);
 
 		var stressLevel = $("#slider-fill").val();
@@ -31,7 +31,7 @@ function initializePage() {
 
 		//print to check it's value has been updated
 		var ponce = localStorage.getItem("userStressLevel");
-		console.log(ponce);
+		console.log(ponce);*/
 		//$.get('/content', contentAJAX);
 	});
 
@@ -41,23 +41,25 @@ function initializePage() {
 
 	$.get('/content', contentAJAX);
 
-	$.get('/userData', userDataAJAX);
+	//$.get('/userData', userDataAJAX);
 
-	//Hide User Stress Handle
-	/*$('<input>').appendTo('[ data-role="content"]').attr({'name':'stress-progress','id':'stress-progress',
-	 'data-highlight':'true','min':'0','max':'100','value':'50','type':'range'}).slider({
-        create: function( event, ui ) {
-            $(this).parent().find('input').hide();
-            $(this).parent().find('input').css('margin-left','-9999px'); // Fix for some FF versions
-            $(this).parent().find('.ui-slider-track').css('margin','0 15px 0 15px');
-            $(this).parent().find('.ui-slider-handle').hide();
-            $(this).parent().find('.ui-disabled').removeClass('ui-disabled');
-            //$(this).parent().unbind('click');
-            //$(this).parent().unbind('mousedown');
-            /*$(this).parent().find('ui-slider').unbind('click');
-            $(this).parent().find('ui-slider').unbind('mousedown');
-        }
-    }).slider("refresh");*/
+	//Hide User Stress Handle - Stopped working :(
+/*	$(document).on('pagebeforeshow', '#index', function(){ 
+		$('<input>').appendTo('[data-role="content"]').attr({'name':'stress-progress','id':'stress-progress',
+		 'data-highlight':'true','min':'0','max':'100','value':'50','type':'range'}).slider({
+	        create: function( event, ui ) {
+	            $(this).parent().find('input').hide();
+	            $(this).parent().find('input').css('margin-left','-9999px'); // Fix for some FF versions
+	            $(this).parent().find('.ui-slider-track').css('margin','0 15px 0 15px');
+	            $(this).parent().find('.ui-slider-handle').hide();
+	            $(this).parent().find('.ui-disabled').removeClass('ui-disabled');
+	            $(this).parent().unbind('click');
+	            $(this).parent().unbind('mousedown');
+	            //$(this).parent().find('ui-slider').unbind('click');
+	            //$(this).parent().find('ui-slider').unbind('mousedown');
+	        }
+	    }).slider("refresh");
+	}*/
 	
 /*	$("#stress-progress").slider({
 		create: function( event, ui ) {
@@ -66,23 +68,30 @@ function initializePage() {
             $(this).parent().find('.ui-slider-track').css('margin','0 15px 0 15px');
             $(this).parent().find('.ui-slider-handle').hide();
             $(this).parent().find('.ui-disabled').removeClass('ui-disabled');
-            //$(this).parent().unbind('click');
-            //$(this).parent().unbind('mousedown');
-            /*$(this).parent().find('ui-slider').unbind('click');
-            $(this).parent().find('ui-slider').unbind('mousedown');*/
- /*       }
+            $(this).parent().unbind('click');
+            $(this).parent().unbind('mousedown');
+            $(this).parent().find('ui-slider').unbind('click');
+            $(this).parent().find('ui-slider').unbind('mousedown');
+        }
 	}).slider("refresh");
 	$("#stress-progress").val(localStorage.getItem("lastname")).slider("refresh");
     //Disable user changing of slider value*/
-//$('input[disabled]').parent().find('.ui-disabled').removeClass('ui-disabled');
+/*$('input[disabled]').parent().find('.ui-disabled').removeClass('ui-disabled');*/
 
-	$('.ui-btn').click(function(e){
-		ga("send","event","like","click");
-	});
+////////////////////Progress bar attempt...again...////////////////////////////////
+
+var progressBar = {
+    setValue:function(id, value) {
+        $(id).val(value);
+        $(id).slider("refresh");
+    }
+}
+
+
 	$('#like').click(function(e) {
 
-		var ponce3 = localStorage.getItem("userStressLevel");
-		console.log("Stress Level: ", ponce3);
+		/*var ponce3 = localStorage.getItem("userStressLevel");
+		console.log("Stress Level: ", ponce3);*/
 		
 		//Increment user stress level towards happy
 		var stressLevel = 10;
@@ -91,8 +100,9 @@ function initializePage() {
 
 		//Update user's stress indicator
 		//$("#slider-user-stress").val(stressLevel);
-
-		$.get('/content', contentAJAX);
+		//$.get('/content', contentAJAX);
+		console.log("Algo paso");
+		$.get('/userData', updateStressLevel);
 		console.log('Like Clicked:');
 	});
 
@@ -109,37 +119,20 @@ function initializePage() {
 	$('.navbar-default .navbar-nav>li>a').click(function(e) {
         $('a').removeClass('active');
     });
+
 }
 
-function requestUserStressLevel(e) {
-	console.log("Need user data");
-
-	var url = "/userData";
-	$.get(url, getUserData);
-	console.log(url);
-}
-
-function getUserStressLevel(result) {
-	var userData = result[0];
-	var userStressLevel = userData.userStressLevel;
-
+/*Laura Help
+function updateStressLevel(ajaxResult) {
+	console.log("I HATE LIIIIIIIIIIIIIIIIIIFE!!!!!!!!!!");
+	/*var userStressLevel = ajaxResult[0];
+	console.log("/////////////////////////////////////////////////////////////////////////////");
 	console.log(userStressLevel);
-}
+	console.log("/////////////////////////////////////////////////////////////////////////////");
+}*/
 
-function requestUserName(e) {
-	console.log("Need user data");
 
-	var url = "/userData";
-	$.get(url, getUserData);
-	console.log(url);
-}
 
-function getUserName(result) {
-	var userData = result[0];
-	var userName = userData.userName;
-
-	console.log(userName);
-}
 
 function contentAJAX(ajaxResult) {
 	var content = ajaxResult[Math.floor(ajaxResult.length * Math.random())];
@@ -150,6 +143,13 @@ function contentAJAX(ajaxResult) {
 	console.log(contentType);
 
 	$('#content-wrapper').empty();
+
+			//The title
+//		$('<h2>').appendTo("#content-title");
+//		$("#content-title").text(description);
+		//$("#content-title").css();
+
+		//The Message
 
 	if (contentType === 'video' || contentType === 'music') {
 		$('<iframe>').appendTo('#content-wrapper');

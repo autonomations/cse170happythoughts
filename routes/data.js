@@ -2,5 +2,5 @@
 
 exports.view = function(req, res) { 
 	// res.json(data);
-	console.log('Content', data);
+	//console.log('Content', data);
 }

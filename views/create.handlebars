@@ -1,65 +1,118 @@
-<div class="row">
-	<h1 class="well"> Create Happy Thoughts </h1>
-</div>
-
-<div class=".col-xs-12 .col-sm-4 .col-md-4 centered">
-
-	<!--Short instructions-->
-	<h4 align="center">Just answer a few questions to create your own Happy Thought!</h4>
-
-	<hr class="hr-or">
-
-	<form role="form">
-
-		<!--Drop down menu allows users to select a type for their Happy Thought-->
-		<div class="form-group">
-			<label for="inputNewContentType">Select a category for your Happy Thought.</label>
-			<select>
-  				<option value="video">Video</option>
-  				<option value="music">Music</option>
-  				<option value="image">Image</option>
-			</select>
-		</div>
-
-		<!--Textbox asks for a URL to the Happy Thought (currently assumes a link will always be present)-->
-		<div class="form-group">
-			<label for="inputNewContentLocation">Add a link to your Happy Thought. </label>
-			<input type="text" class="form-control" id="inputNewContentLocation" placeholder="https://wwww.yourlink.com">
-		</div>
-
-		<!--Ask the user to submit name their Happy Thought-->
-		<div class="form-group">
-			<label for="inputNewContentTitle">What would you like to title your Happy Thought? </label>
-			<input type="text" class="form-control" id="inputNewContentTitle" placeholder="Three Little Birds by Bob Marley">
-		</div>
-
-		<!--"Saves" the user's Happy Thought-->
-		<div class="form-group">
-			<button type="button" class="btn-lg btn-primary col-xs-4" style="margin-bottom: 30px;" onClick="saveUserContent()">Save</button>
-		</div>
-	</form>
-</div>
-
-<script>
-
-	//Notify the user that their content has been "saved"
-	function saveUserContent() {
-		if(confirm('Your Happy Thought has been saved!')){
-			//refresh the page when user clicks OK
-			document.location.reload(true);
-		}
-	}
-</script>
-<!--<div class="row">
-	<div class="videowrapper column-xs-6">
-		<iframe class="column-xs-6" height="auto" class="img-responsive" src="//www.youtube.com/embed/zaGUr6wzyT8" frameborder="0" allowfullscreen></iframe>
-
+<div class="container">
+	<div class="row">
+		<h1 class="well" id="title2"> Create Happy Thoughts </h1>
 	</div>
+
+<!--	<div class=".col-xs-12 .col-sm-4 .col-md-4 centered">-->
+
+		<!--Short instructions-->
+		<h4 align="center">Just answer a few questions to create your own Happy Thought!</h4>
+
+		<hr class="hr-or">
+
+<!--		<form role="form" class="containter">-->
+
+			<!--Drop down menu allows users to select a type for their Happy Thought-->
+			<div class="form-group">
+				<label for="inputNewContentType">Select a category for your Happy Thought.</label>
+				<select>
+	  				<option value="video">Video</option>
+	  				<option value="music">Music</option>
+	  				<option value="image">Image</option>
+				</select>
+			</div>
+
+			<!--Textbox asks for a URL to the Happy Thought (currently assumes a link will always be present)-->
+			<div class="form-group">
+				<label for="inputNewContentLocation">Add a link to your Happy Thought. </label>
+				<input type="text" class="form-control" id="inputNewContentLocation" placeholder="https://wwww.yourlink.com">
+			</div>
+
+			<!--Ask the user to name their Happy Thought-->
+			<div class="form-group">
+				<label for="inputNewContentTitle">What would you like to title your Happy Thought? </label>
+				<input type="text" class="form-control" id="inputNewContentTitle" placeholder="Three Little Birds by Bob Marley">
+			</div>
+
+			<!--"Saves" the user's Happy Thought-->
+<!--			<div class="form-group">
+				<button type="button" class="btn-lg btn-primary col-xs-4" style="margin-bottom: 30px;" onClick="saveUserContent()">Save</button>
+			</div>-->
+	<!--///////////////////////////////////////////////////////////////////////////////////////////-->
+		<a href="#popupLogin2" data-rel="popup" data-position-to="window" data-role="button" data-inline="true" aria-haspopup="true" aria-owns="popupLogin2" aria-expanded="false" class="ui-link ui-btn" role="button">Save</a>
+
+		<div class="ui-popup-container ui-popup-active" id="popupLogin2-popup" tabindex="0">
+			<div data-role="popup" id="popupLogin2" data-theme="a" class="ui-corner-all ui-popup ui-body-a ui-overlay-shadow">
+				<form>
+					<div style="padding:10px 20px;">
+						<div id="shareForm">
+							<h3>Your Happy Thought was saved</h3>
+
+							<div class="form-group">
+								<label for="inputNewContentType">Share your Happy Thought with a friend!</label>
+								<select>
+				  					<option value="erik">Erik</option>
+				  					<option value="gabs">Gaby</option>
+				  					<option value="colbert">Stephen Colbert</option>
+				  					<option value="jlawrence">Jennifer Lawrence</option>
+								</select>
+							</div>
+
+				          <label for="shareMessage">Message:</label>
+				          <textarea class="form-control" id="inputShareMsg" style="height: 500px" placeholder="You can do it! :D">&#10;&#10;&#10;&#10;&#10;</textarea>
+				        </div>
+				    
+					<button type="button" data-theme="b" class="ui-btn" id="shareBtn" 
+					onClick="contentSent()">Share</button>
+		<!--		<button type="submit" data-theme="b" class="ui-btn" id="dontShareBtn">No Thanks</button>-->
+					<button type="button" data-theme="b" class="ui-btn" id="dontShareBtn" 
+					onClick="window.location = '/create'">No Thanks</button>
+					</div>			
+				</form>
+			</div>
+		</div>
+
+
+
+	<!--//////////////////////////////////////////////////////////////////////////////////////////-->
+			<!--Drop down menu allows users to select a friend to send their Happy Thought to-->
+	<!--		<div class="form-group">
+				<label for="inputNewContentType">Share your Happy Thought with a friend.</label>
+				<select>
+					<option value="none"></option>
+	  				<option value="erik">Erik</option>
+	  				<option value="gabs">Gaby</option>
+	  				<option value="colbert">Stephen Colbert</option>
+	  				<option value="jlawrence">Jennifer Lawrence</option>
+				</select>
+			</div>-->
+
+<!--		</form>
+	</div>-->
+
+
+
+
+	<!--<div class="row">
+		<div class="videowrapper column-xs-6">
+			<iframe class="column-xs-6" height="auto" class="img-responsive" src="//www.youtube.com/embed/zaGUr6wzyT8" frameborder="0" allowfullscreen></iframe>
+
+		</div>
+	</div>
+
+	<div class"row" style="margin-top: 50px;">
+		<div class="col-xs-4"></div>
+		<button type="button" class="btn-lg btn-primary col-xs-4" style="margin-bottom: 30px;"> Create </button>
+
+	</div>-->
 </div>
 
-<div class"row" style="margin-top: 50px;">
-	<div class="col-xs-4"></div>
-	<button type="button" class="btn-lg btn-primary col-xs-4" style="margin-bottom: 30px;"> Create </button>
-
-</div>-->
+	<script>
+		function contentSent() {
+			document.getElementById("shareForm").innerHTML="<h3>Your Happy Thought was sent!</h3>";
+			document.getElementById("shareBtn").textContent = "Okay";
+			document.getElementById("dontShareBtn").style.visibility = 'hidden';
+			document.getElementById("shareBtn").setAttribute("onClick", "document.location.reload(true);");
+		}
+	</script>
 

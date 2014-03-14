@@ -28,6 +28,7 @@ var welcome3 = require('./routes/welcome3');
 var welcome4 = require('./routes/welcome4');
 var stress_level1 = require('./routes/stress_level1');
 var stress_level2 = require('./routes/stress_level2');
+var userData2 = require('./routes/userData2');
 
 /************************************************************************************************
  * Environments
@@ -75,7 +76,8 @@ if ('development' == app.get('env')) {
  * ADD ROUTES HERE
  ***********************************************************************************************/
 app.get('/', login.view);
-app.get('/home', index.view);
+app.get('/home', index.view);//reads from file system
+//aYUda: app.post('/home', index.update);//reads the form data and write to file system
 app.get('/data', data.view);
 app.get('/content', content.view);
 app.get('/create', create.view);
@@ -96,6 +98,7 @@ app.get('/stress_level2', stress_level2.view);
 app.get('/add_friend', index.view);
 // app.get('/project', project.viewProject);
 // app.get('/project', project.viewProject);
+//aYUda: app.get('/userData', userData2.userStress);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
