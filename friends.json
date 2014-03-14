@@ -1,12 +1,28 @@
 {
 	"images": [
 		{
+			"name": "Dolores Gallegos",
+			"imageURL": "mom.jpeg"			
+		},
+		{
+			"name": "David Gallegos",
+			"imageURL": "dad.jpeg"			
+		},
+		{
+			"name": "Austin",
+			"imageURL": "austin.jpeg"			
+		},		
+		{
 			"name": "Erik Gallegos",
 			"imageURL": "erik.jpeg"			
 		},
 		{
 			"name": "Gaby Ponce",
 			"imageURL": "gabs.jpeg"		
+		},
+		{
+			"name": "Kurt Selander",
+			"imageURL": "kurt.jpg"		
 		},
 		{
 			"name": "Stephen Colbert",

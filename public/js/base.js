@@ -41,117 +41,43 @@ function initializePage() {
 
 	$.get('/content', contentAJAX);
 
-	//$.get('/userData', userDataAJAX);
+	$('#like').on("click", function(e) {
 
-	//Hide User Stress Handle - Stopped working :(
-/*	$(document).on('pagebeforeshow', '#index', function(){ 
-		$('<input>').appendTo('[data-role="content"]').attr({'name':'stress-progress','id':'stress-progress',
-		 'data-highlight':'true','min':'0','max':'100','value':'50','type':'range'}).slider({
-	        create: function( event, ui ) {
-	            $(this).parent().find('input').hide();
-	            $(this).parent().find('input').css('margin-left','-9999px'); // Fix for some FF versions
-	            $(this).parent().find('.ui-slider-track').css('margin','0 15px 0 15px');
-	            $(this).parent().find('.ui-slider-handle').hide();
-	            $(this).parent().find('.ui-disabled').removeClass('ui-disabled');
-	            $(this).parent().unbind('click');
-	            $(this).parent().unbind('mousedown');
-	            //$(this).parent().find('ui-slider').unbind('click');
-	            //$(this).parent().find('ui-slider').unbind('mousedown');
-	        }
-	    }).slider("refresh");
-	}*/
-	
-/*	$("#stress-progress").slider({
-		create: function( event, ui ) {
-            $(this).parent().find('input').hide();
-            $(this).parent().find('input').css('margin-left','-9999px'); // Fix for some FF versions
-            $(this).parent().find('.ui-slider-track').css('margin','0 15px 0 15px');
-            $(this).parent().find('.ui-slider-handle').hide();
-            $(this).parent().find('.ui-disabled').removeClass('ui-disabled');
-            $(this).parent().unbind('click');
-            $(this).parent().unbind('mousedown');
-            $(this).parent().find('ui-slider').unbind('click');
-            $(this).parent().find('ui-slider').unbind('mousedown');
-        }
-	}).slider("refresh");
-	$("#stress-progress").val(localStorage.getItem("lastname")).slider("refresh");
-    //Disable user changing of slider value*/
-/*$('input[disabled]').parent().find('.ui-disabled').removeClass('ui-disabled');*/
+		// get new content
+		$.get('/content', contentAJAX);
 
-////////////////////Progress bar attempt...again...////////////////////////////////
+		// Update Stress range slider
+		var stressLevel = $('input[name=stress-progress]').val();
+		stressLevel = stressLevel - 3;
+		$("#stress-progress").val(stressLevel).slider("refresh");
 
-var progressBar = {
-    setValue:function(id, value) {
-        $(id).val(value);
-        $(id).slider("refresh");
-    }
-}
-
-
-	$('#like').click(function(e) {
-
-		/*var ponce3 = localStorage.getItem("userStressLevel");
-		console.log("Stress Level: ", ponce3);*/
-		
-		//Increment user stress level towards happy
-		var stressLevel = 10;
-		stressLevel = stressLevel + 10;
-		//console.log(stressLevel);
-
-		//Update user's stress indicator
-		//$("#slider-user-stress").val(stressLevel);
-		//$.get('/content', contentAJAX);
-		console.log("Algo paso");
-		$.get('/userData', updateStressLevel);
+		//console 
+		console.log(stressLevel);
 		console.log('Like Clicked:');
 	});
-
-	$('#dislike').click(function(e) {
-
-		//var sliderValue = $("#slider-fill").val();
-		//$("#slider-fill").val() = sliderValue + 10;
-
-		$.get('/content', contentAJAX);
-		console.log('Dislike Clicked:');
-	});
-
-	/* Highlight active menu item */
-	$('.navbar-default .navbar-nav>li>a').click(function(e) {
-        $('a').removeClass('active');
-    });
-
 }
-
-/*Laura Help
-function updateStressLevel(ajaxResult) {
-	console.log("I HATE LIIIIIIIIIIIIIIIIIIFE!!!!!!!!!!");
-	/*var userStressLevel = ajaxResult[0];
-	console.log("/////////////////////////////////////////////////////////////////////////////");
-	console.log(userStressLevel);
-	console.log("/////////////////////////////////////////////////////////////////////////////");
-}*/
-
-
-
 
 function contentAJAX(ajaxResult) {
 	var content = ajaxResult[Math.floor(ajaxResult.length * Math.random())];
 	var url = content.location;
 	var description = content.content;
+	var message = content.message;
+	var from = content.from;
 	var contentType = content.type;
 
 	console.log(contentType);
 
 	$('#content-wrapper').empty();
-
-			//The title
-//		$('<h2>').appendTo("#content-title");
-//		$("#content-title").text(description);
-		//$("#content-title").css();
-
-		//The Message
+	$('#content-title').empty();
+	$('#content-from').empty();
+	$('#content-message').empty();
 
 	if (contentType === 'video' || contentType === 'music') {
+		// title
+		$('<h3>').appendTo('#content-title');
+		$('#content-title h3').text(description);
+
+		// content
 		$('<iframe>').appendTo('#content-wrapper');
 		$('#content-wrapper').css('height', '250px');
 
@@ -161,9 +87,22 @@ function contentAJAX(ajaxResult) {
 			height:'100%',
 			margin: '0 auto 0 auto',
 		});
+
+		//from
+		$('<h3>').appendTo('#content-from');
+		$('#content-from h3').text('From: '+ from);
+
+		//message
+		$('<p>').appendTo('#content-message');
+		$('#content-message p').text(message);
 	}
 
 	if (contentType === 'picture') {
+		// title
+		$('<h1>').appendTo('#content-title');
+		$('#content-title h1').text(description);
+
+		// content
 		$('<img>').appendTo('#content-wrapper');
 		$('#content-wrapper').css('height', '100%');
 
@@ -173,63 +112,47 @@ function contentAJAX(ajaxResult) {
 			height: 'auto',
 			margin: '0 auto 0 auto',
 		});
+
+		//from
+		$('<h3>').appendTo('#content-from');
+		$('#content-from h3').text("From: " + from);
+
+		//message
+		$('<p>').appendTo('#content-message');
+		$('#content-message p').text(message);
 	}
 
 	if (contentType === 'quote') {
-		$('<p>').appendTo('#content-wrapper');
+		// title
+		$('<h3>').appendTo('#content-title');
+		$('#content-title h3').text('Happy Quote:');
+
+		// content
+		$('<p class="well">').appendTo('#content-wrapper');
 		$('#content-wrapper p').text(description);
-		$('#content-wrapper p').css('height', '250px');
-		$('#content-wrapper').css('height', '250px');
+		$('#content-wrapper').css('height', '150px');
+
+		//from
+		$('<h4>').appendTo('#content-from');
+		$('#content-from h4').text("From: Team Happy Thoughts");
+
+		//messa
 	}
 
 	if (contentType === 'challenge') {
-		$('<p>').appendTo('#content-wrapper');
+		// title
+		$('<h1>').appendTo('#content-title');
+		$('#content-title h1').text('Challenge:');
+
+		// content
+		$('<p class="well">').appendTo('#content-wrapper');
 		$('#content-wrapper p').text(description);
-		$('#content-wrapper p').css('height', '250px');
-		$('#content-wrapper').css('height', '250px');
+		$('#content-wrapper').css('height', '150px');
+
+		//from
+		$('<h4>').appendTo('#content-from');
+		$('#content-from h4').text("From: Team Happy Thoughts");
 	}
 
 }
 
-
-/*
- * JPANEL MENU
- */
-// @codekit-prepend lib/modernizr-2.6.1.min.js
-// @codekit-prepend lib/respond.js
-// @codekit-prepend lib/highlight.min.js
-// @codekit-prepend lib/jquery-1.9.0.js
-// @codekit-prepend lib/jquery.jpanelmenu.min.js
-// @codekit-prepend lib/plugins.js
-// var jPanelMenu = {};
-// $(function() {
-// 	$('pre').each(function(i, e) {hljs.highlightBlock(e)});
-	
-// 	jPanelMenu = $.jPanelMenu({
-// 		menu: 'header.main nav',
-// 		openPosition: '250px',
-// 		closeOnContentClick: false,
-// 		// animated: true,
-// 		duration: 300
-// 	});
-// 	jPanelMenu.on();
-
-// 	$(document).on('click',jPanelMenu.menu + ' li a',function(e){
-// 		if ( jPanelMenu.isOpen() && $(e.target).attr('href').substring(0,1) == '#' ) { jPanelMenu.close(); }
-// 	});
-
-// 	$(document).on('click','#trigger-off',function(e){
-// 		jPanelMenu.off();
-// 		$('html').css('padding-top','40px');
-// 		$('#trigger-on').remove();
-// 		$('body').append('<a href="" title="Re-Enable jPanelMenu" id="trigger-on">Re-Enable jPanelMenu</a>');
-// 		e.preventDefault();
-// 	});
-
-// 	$(document).on('click','#trigger-on',function(e){
-// 		jPanelMenu.on();
-// 		$('html').css('padding-top',0);
-// 		$('#trigger-on').remove();
-// 		e.preventDefault();
-// 	});
-// });

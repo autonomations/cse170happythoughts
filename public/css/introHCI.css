@@ -74,3 +74,21 @@
     position: relative;
     top: 175px;
 }
+
+input.ui-slider-input {
+    display: block;
+}
+
+.ui-header, .ui-footer {
+    background: rgb(87, 181, 234);
+    height: 44px;
+    color: white;
+}
+
+.happyfaces {
+    max-height: 75px;
+}
+
+#content-message-wrapper {
+    /*background: rgb(87, 181, 234);*/
+}
